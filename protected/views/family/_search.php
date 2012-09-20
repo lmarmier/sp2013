@@ -37,11 +37,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'subscribeDate'); ?>
-		<?php echo $form->textField($model,'subscribeDate'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'project'); ?>
 		<?php echo $form->textField($model,'project',array('size'=>60,'maxlength'=>100)); ?>
 	</div>
@@ -59,6 +54,11 @@
 	<div class="row">
 		<?php echo $form->label($model,'phone'); ?>
 		<?php echo $form->textField($model,'phone'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'created'); ?>
+		<?php echo $form->textField($model,'created'); ?>
 	</div>
 
 	<div class="row buttons">

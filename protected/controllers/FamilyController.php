@@ -60,7 +60,7 @@ class FamilyController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($id=0)
 	{
 		$model=new Family;
 
@@ -69,13 +69,39 @@ class FamilyController extends Controller
 
 		if(isset($_POST['Family']))
 		{
+			//CVarDumper::dump($_POST, 10, true);
+			//*
 			$model->attributes=$_POST['Family'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()){
+				foreach($_POST['Participant'] as $participant){
+					$modelParticipant = new Participant;
+					$modelParticipant->attributes=$participant;
+					$modelParticipant->family_id=$model->id;
+					$modelParticipant->save();
+				}
+				foreach($_POST['Participation'] as $d => $p){
+					$modelParticipation = new Participation;
+					$modelParticipation->attributes = $p;
+					$modelParticipation->date = $d;
+					$modelParticipation->family_id = $model->id;
+					//CVarDumper::dump($modelParticipation,10,true);
+					$modelParticipation->save();
+				}
+				
+				
+				$this->redirect(array('view','id'=>$model->id));	
+			}
+			//*
 		}
+		
+		$model->form_id = $id;
+		$modelProject = Project::model()->findByPk($id);
+		$modelParticipant = new Participant;
 
 		$this->render('create',array(
 			'model'=>$model,
+			'modelParticipant'=>$modelParticipant,
+			'modelProject'=>$modelProject,
 		));
 	}
 

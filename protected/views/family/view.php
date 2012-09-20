@@ -26,10 +26,10 @@ $this->menu=array(
 		'adresse',
 		'zip',
 		'city',
-		'subscribeDate',
 		'project',
 		'form_id',
 		'mail',
 		'phone',
+		'created',
 	),
 )); ?>

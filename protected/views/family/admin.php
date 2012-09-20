@@ -50,12 +50,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'adresse',
 		'zip',
 		'city',
-		'subscribeDate',
-		/*
 		'project',
+		/*
 		'form_id',
 		'mail',
 		'phone',
+		'created',
 		*/
 		array(
 			'class'=>'CButtonColumn',

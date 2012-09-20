@@ -9,15 +9,16 @@
  * @property string $adresse
  * @property integer $zip
  * @property string $city
- * @property string $subscribeDate
  * @property string $project
  * @property integer $form_id
  * @property string $mail
  * @property integer $phone
+ * @property string $created
  *
  * The followings are the available model relations:
  * @property Project $form
  * @property Participant[] $participants
+ * @property Participation[] $participations
  */
 class Family extends CActiveRecord
 {
@@ -38,6 +39,17 @@ class Family extends CActiveRecord
 	{
 		return 'family';
 	}
+	
+	/**
+	* Is 
+	*/
+	public function beforeSave() {
+	
+	    if ($this->isNewRecord)
+	        $this->created = new CDbExpression('NOW()');
+	 
+	    return parent::beforeSave();
+	}
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -47,13 +59,13 @@ class Family extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, zip, city, subscribeDate, form_id, mail', 'required'),
+			array('name, zip, city, form_id, mail', 'required'),
 			array('zip, form_id, phone', 'numerical', 'integerOnly'=>true),
 			array('name, mail', 'length', 'max'=>45),
 			array('adresse, city, project', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, adresse, zip, city, subscribeDate, project, form_id, mail, phone', 'safe', 'on'=>'search'),
+			array('id, name, adresse, zip, city, project, form_id, mail, phone', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,6 +79,7 @@ class Family extends CActiveRecord
 		return array(
 			'form' => array(self::BELONGS_TO, 'Project', 'form_id'),
 			'participants' => array(self::HAS_MANY, 'Participant', 'family_id'),
+			'participations' => array(self::HAS_MANY, 'Participation', 'family_id'),
 		);
 	}
 
@@ -77,15 +90,15 @@ class Family extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
+			'name' => 'Nom',
 			'adresse' => 'Adresse',
-			'zip' => 'Zip',
-			'city' => 'City',
-			'subscribeDate' => 'Subscribe Date',
-			'project' => 'Project',
-			'form_id' => 'Form',
+			'zip' => 'NPA',
+			'city' => 'Localité',
+			'project' => 'Projet',
+			'form_id' => 'Identifiant du projet',
 			'mail' => 'Mail',
-			'phone' => 'Phone',
+			'phone' => 'Téléphone',
+			'created' => 'Date de création',
 		);
 	}
 
@@ -105,11 +118,11 @@ class Family extends CActiveRecord
 		$criteria->compare('adresse',$this->adresse,true);
 		$criteria->compare('zip',$this->zip);
 		$criteria->compare('city',$this->city,true);
-		$criteria->compare('subscribeDate',$this->subscribeDate,true);
 		$criteria->compare('project',$this->project,true);
 		$criteria->compare('form_id',$this->form_id);
 		$criteria->compare('mail',$this->mail,true);
 		$criteria->compare('phone',$this->phone);
+		$criteria->compare('created',$this->created,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

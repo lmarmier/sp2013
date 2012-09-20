@@ -8,8 +8,8 @@
 
 	<?php $datetime = CDateTimeParser::parse($data->startDate,'yyyy-mm-dd'); ?>
 
-	<b><?php //echo CHtml::encode($data->city); ?></b> - du <?php echo CHtml::encode(strtotime(CDateFormatter::formatDateTime($datetime))); ?>
-
+	<b><?php echo CHtml::encode($data->city); ?></b> - du <?php echo CHtml::encode($data->startDate); ?> au <?php echo CHtml::encode($data->endDate); ?> - <?php echo ($data->night == 1)?"Camp (nuits comprises)":"Camps de jour"; ?><br />
+	<?php echo CHtml::link('Créer un projet', array('project/create', 'id'=>$data->id)); ?> - <?php echo CHtml::link('Liste des projets', array('project/index', 'id'=>$data->id)); ?> - <?php echo CHtml::link('Liste des participants', array('participant/index', 'id'=>$data->id)); ?>
 	<?php /* echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
 	<br />

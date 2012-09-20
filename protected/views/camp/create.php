@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create Camp</h1>
+<h1>Ajouter un camp</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

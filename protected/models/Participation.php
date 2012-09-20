@@ -1,25 +1,26 @@
 <?php
 
 /**
- * This is the model class for table "participant".
+ * This is the model class for table "participation".
  *
- * The followings are the available columns in table 'participant':
+ * The followings are the available columns in table 'participation':
  * @property integer $id
- * @property string $lastName
- * @property string $gender
- * @property string $name
- * @property string $birthdate
+ * @property string $date
+ * @property integer $day
+ * @property integer $night
+ * @property integer $lunch
+ * @property integer $dinner
  * @property integer $family_id
  *
  * The followings are the available model relations:
  * @property Family $family
  */
-class Participant extends CActiveRecord
+class Participation extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Participant the static model class
+	 * @return Participation the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -31,7 +32,7 @@ class Participant extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'participant';
+		return 'participation';
 	}
 
 	/**
@@ -42,12 +43,11 @@ class Participant extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('lastName, gender, name, birthdate, family_id', 'required'),
-			array('family_id', 'numerical', 'integerOnly'=>true),
-			array('lastName, gender, name', 'length', 'max'=>45),
+			array('date, family_id', 'required'),
+			array('day, night, lunch, dinner, family_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, lastName, gender, name, birthdate, family_id', 'safe', 'on'=>'search'),
+			array('id, date, day, night, lunch, dinner, family_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -70,11 +70,12 @@ class Participant extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'lastName' => 'Prénom',
-			'gender' => 'Sexe',
-			'name' => 'Nom',
-			'birthdate' => 'Date d\'anniversaire',
-			'family_id' => 'Id de la famille',
+			'date' => 'Date',
+			'day' => 'Day',
+			'night' => 'Night',
+			'lunch' => 'Lunch',
+			'dinner' => 'Dinner',
+			'family_id' => 'Family',
 		);
 	}
 
@@ -90,10 +91,11 @@ class Participant extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('lastName',$this->lastName,true);
-		$criteria->compare('gender',$this->gender,true);
-		$criteria->compare('name',$this->name,true);
-		$criteria->compare('birthdate',$this->birthdate,true);
+		$criteria->compare('date',$this->date,true);
+		$criteria->compare('day',$this->day);
+		$criteria->compare('night',$this->night);
+		$criteria->compare('lunch',$this->lunch);
+		$criteria->compare('dinner',$this->dinner);
 		$criteria->compare('family_id',$this->family_id);
 
 		return new CActiveDataProvider($this, array(

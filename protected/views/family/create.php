@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create Family</h1>
+<h1>Inscription pour <?php echo $modelProject->title ?></h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form', array('model'=>$model, 'modelProject'=>$modelProject, 'modelParticipant'=>$modelParticipant)); ?>

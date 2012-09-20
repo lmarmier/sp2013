@@ -53,7 +53,7 @@ class Project extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, startDate, endDate, night, lunch, dinner, camp_id', 'required'),
+			array('title, startDate, endDate, camp_id', 'required'),
 			array('night, lunch, dinner, daySelect, nightSelect, lunchSelect, dinnerSelect, camp_id', 'numerical', 'integerOnly'=>true),
 			array('priceByDay, priceByLunch, priceByDinner', 'numerical'),
 			array('title', 'length', 'max'=>100),
@@ -84,19 +84,19 @@ class Project extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
-			'startDate' => 'Start Date',
-			'endDate' => 'End Date',
-			'priceByDay' => 'Price By Day',
-			'priceByLunch' => 'Price By Lunch',
-			'priceByDinner' => 'Price By Dinner',
-			'night' => 'Night',
-			'lunch' => 'Lunch',
-			'dinner' => 'Dinner',
-			'daySelect' => 'Day Select',
-			'nightSelect' => 'Night Select',
-			'lunchSelect' => 'Lunch Select',
-			'dinnerSelect' => 'Dinner Select',
+			'title' => 'Titre du projet',
+			'startDate' => 'Date de début',
+			'endDate' => 'Date de fin',
+			'priceByDay' => 'Prix par jours',
+			'priceByLunch' => 'Prix par dîner',
+			'priceByDinner' => 'Prix par souper',
+			'night' => 'Nuit',
+			'lunch' => 'Dîner',
+			'dinner' => 'Souper',
+			'daySelect' => 'Séléction des jours',
+			'nightSelect' => 'Séléction des nuits',
+			'lunchSelect' => 'Séléction des dîner',
+			'dinnerSelect' => 'Séléction des souper',
 			'camp_id' => 'Camp',
 		);
 	}
