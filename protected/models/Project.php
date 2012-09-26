@@ -11,6 +11,7 @@
  * @property double $priceByDay
  * @property double $priceByLunch
  * @property double $priceByDinner
+ * @property double $priceByNight
  * @property integer $night
  * @property integer $lunch
  * @property integer $dinner

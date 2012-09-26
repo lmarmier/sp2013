@@ -125,9 +125,18 @@ class ParticipantController extends Controller
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('Participant');
+	public function actionIndex($id = null)
+	{	if($id == null){
+			$dataProvider=new CActiveDataProvider('Participant');
+		}
+		else{
+			$dataProvider=new CActiveDataProvider('Participant', array(
+				'criteria'=>array(
+					'condition'=>'family.form_id='.$id,
+					'with'=>array('family'),
+				),
+			));
+		}
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

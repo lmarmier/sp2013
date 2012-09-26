@@ -6,7 +6,7 @@
 
 <style type="text/css">
 	.column{
-		width: 150px;
+		width: 120px;
 	}
 </style>
 
@@ -63,57 +63,44 @@
 	<br />
 	
 	<b>Participants</b><br /><br />
+	<div id="participants">
+		<span class="column"><?php echo $form->labelEx($modelParticipant,'gender'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'name'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'lastName'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'birthdate'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'mail'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'phone'); ?></span>
+			<br />
+		<div class="row">
+<span class="column"><select name="Participant[0][gender]" id="Participant_gender">
+	<option value="Monsieur">Monsieur</option>
+	<option value="Madame">Madame</option>
+</select>
+</span>
+<span class="column"><input name="Participant[0][name]" id="Participant_name" type="text" maxlength="45"></span><span class="column"><input name="Participant[0][lastName]" id="Participant_lastName" type="text" maxlength="45"></span><span class="column">
+		<?php 
+			$this->widget('zii.widgets.jui.CJuiDatePicker', array(
+			    'language'=>'fr',
+			    'name'=>'Participant[0][birthdate]',
+			    // additional javascript options for the date picker plugin
+			    'options'=>array(
+			        'showAnim'=>'fold',
+			        'dateFormat'=>'yy-mm-dd',
+			    ),
+			    'htmlOptions'=>array(
+			    ),
+			)); ?>
+			</span>
+			<span class="column"><input name="Participant[0][mail]" id="Participant_phone" type="text" maxlength="45"></span>
+			<span class="column"><input name="Participant[0][phone]" id="Participant_phone" type="text" maxlength="45"></span>
+			
+		</div>
+		
+		<span id="statusId" style="visibility: hidden">2</span>
+		
+		<div id="newParticipant">
+			<?php echo CHtml::ajaxLink("Ajouter", array('ajax'), array(
+				"data"=>"'id='+$('#statusId').text()",
+				"processData"=>false,
+				"success"=>"function(msg){jQuery(msg).appendTo('#participants');$('#statusId').html(eval($('#statusId').text()) + 1)}",
+			)); ?>
+		</div>
 	
-	<span class="column"><?php echo $form->labelEx($modelParticipant,'gender'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'name'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'lastName'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'birthdate'); ?></span>
-		<br />
-	<div class="row">
-		<span class="column"><input name="Participant[0][gender]" id="Participant_gender" type="text" maxlength="45"></span><span class="column"><input name="Participant[0][name]" id="Participant_name" type="text" maxlength="45"></span><span class="column"><input name="Participant[0][lastName]" id="Participant_lastName" type="text" maxlength="45"></span><span class="column">
-	<?php 
-		$this->widget('zii.widgets.jui.CJuiDatePicker', array(
-		    'language'=>'fr',
-		    'name'=>'Participant[0][birthdate]',
-		    // additional javascript options for the date picker plugin
-		    'options'=>array(
-		        'showAnim'=>'fold',
-		        'dateFormat'=>'yy-mm-dd',
-		    ),
-		    'htmlOptions'=>array(
-		    ),
-		)); ?>
-		</span>
-	</div>
-	
-	<div class="row">
-		<span class="column"><input name="Participant[1][gender]" id="Participant_gender" type="text" maxlength="45"></span><span class="column"><input name="Participant[1][name]" id="Participant_name" type="text" maxlength="45"></span><span class="column"><input name="Participant[1][lastName]" id="Participant_lastName" type="text" maxlength="45"></span><span class="column">
-	<?php 
-		$this->widget('zii.widgets.jui.CJuiDatePicker', array(
-		    'language'=>'fr',
-		    'name'=>'Participant[1][birthdate]',
-		    // additional javascript options for the date picker plugin
-		    'options'=>array(
-		        'showAnim'=>'fold',
-		        'dateFormat'=>'yy-mm-dd',
-		    ),
-		    'htmlOptions'=>array(
-		    ),
-		));?>
-		</span>
-	</div>
-	
-	<div class="row">
-		<span class="column"><input name="Participant[2][gender]" id="Participant_gender" type="text" maxlength="45"></span><span class="column"><input name="Participant[2][name]" id="Participant_name" type="text" maxlength="45"></span><span class="column"><input name="Participant[2][lastName]" id="Participant_lastName" type="text" maxlength="45"></span><span class="column"><?php 
-		$this->widget('zii.widgets.jui.CJuiDatePicker', array(
-		    'language'=>'fr',
-		    'name'=>'Participant[2][birthdate]',
-		    // additional javascript options for the date picker plugin
-		    'options'=>array(
-		        'showAnim'=>'fold',
-		        'dateFormat'=>'yy-mm-dd',
-		    ),
-		    'htmlOptions'=>array(
-		    ),
-		));?>
-		</span>
 	</div>
 	
 	<br /><b>Participations</b><br /><br />
@@ -160,18 +147,27 @@
 				//Calcule de toutes les dates comprise entre le début et la fin du projet
 				$ii = -1;
 				//echo $start. ' - '. $end;
-				$i = $start;
-				for($ii=0; $ii<=$nbDays; $ii++){
-					$date[$ii] = date("Y-m-d",$i);
+				$ii = $start;
+				/*for($ii=0; $ii<=$nbDays; $ii++){
+					//$date[$ii] = date("Y-m-d",$i);
+					$date[$ii] = $i;
+
 					$i+=86400;
 					//echo $i;
 				}
+				//*/
+				$timestamp = new CDateFormatter('fr');
+				
 				?>
 			
 				<?php for($i=0;$i<=$nbDays;$i++): ?>
 				
+				<?php 
+					$date[$i] = date("Y-m-d",$ii);
+				?>
+				
 				<tr>
-					<td><?php echo $date[$i]; ?></td>
+					<td><?php echo $timestamp->formatDateTime($ii, 'full', false); ?></td>
 					<?php if($modelProject->daySelect): ?>
 					<td><input id="Participation_day" type="checkbox" name="Participation[<?php echo $date[$i]; ?>][day]" value="1"></td>
 					<?php endif; ?>
@@ -185,6 +181,7 @@
 					<td><input id="Participation_dinner" type="checkbox" name="Participation[<?php echo $date[$i]; ?>][dinner]" value="1"></td>
 					<?php endif; ?>
 				</tr>
+				<?php $ii+=86400; ?>
 				<?php endfor; ?>
 			</tbody>
 		</table>

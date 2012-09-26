@@ -8,6 +8,8 @@
  * @property string $lastName
  * @property string $gender
  * @property string $name
+ * @property string $phone
+ * @property string $mail
  * @property string $birthdate
  * @property integer $family_id
  *
@@ -44,7 +46,8 @@ class Participant extends CActiveRecord
 		return array(
 			array('lastName, gender, name, birthdate, family_id', 'required'),
 			array('family_id', 'numerical', 'integerOnly'=>true),
-			array('lastName, gender, name', 'length', 'max'=>45),
+			array('lastName, gender, name, phone', 'length', 'max'=>45),
+			array('mail', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, lastName, gender, name, birthdate, family_id', 'safe', 'on'=>'search'),
@@ -73,6 +76,7 @@ class Participant extends CActiveRecord
 			'lastName' => 'Prénom',
 			'gender' => 'Sexe',
 			'name' => 'Nom',
+			'phone'=>'Natel',
 			'birthdate' => 'Date d\'anniversaire',
 			'family_id' => 'Id de la famille',
 		);
