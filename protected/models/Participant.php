@@ -74,7 +74,7 @@ class Participant extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'lastName' => 'Prénom',
-			'gender' => 'Sexe',
+			'gender' => 'Titre',
 			'name' => 'Nom',
 			'phone'=>'Natel',
 			'birthdate' => 'Date d\'anniversaire',

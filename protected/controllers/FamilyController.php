@@ -28,11 +28,11 @@ class FamilyController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('create', 'ajax'),
+				'actions'=>array('create', 'ajax', 'view'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','view','index'),
+				'actions'=>array('create','update','index'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -51,6 +51,7 @@ class FamilyController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$this->layout = "//layouts/column1";
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
@@ -62,6 +63,7 @@ class FamilyController extends Controller
 	 */
 	public function actionCreate($id=0)
 	{
+		$this->layout = "//layouts/column1";
 		$model=new Family;
 
 		// Uncomment the following line if AJAX validation is needed

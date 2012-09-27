@@ -28,6 +28,8 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('family_id')); ?>:</b>
 	<?php echo CHtml::encode($data->family_id); ?>
 	<br />
+	<b>Famille</b>
+	<?php echo CHtml::encode($data->family->name); ?>
 
 
 </div>

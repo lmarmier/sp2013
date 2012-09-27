@@ -94,12 +94,12 @@
 		<span id="statusId" style="visibility: hidden">2</span>
 		
 		<div id="newParticipant">
-			<?php echo CHtml::ajaxLink("Ajouter", array('ajax'), array(
+			<?php echo CHtml::ajaxButton("Ajouter", array('ajax'), array(
 				"data"=>"'id='+$('#statusId').text()",
 				"processData"=>false,
 				"success"=>"function(msg){jQuery(msg).appendTo('#participants');$('#statusId').html(eval($('#statusId').text()) + 1)}",
 			)); ?>
-		</div>
+		</div><br />
 	
 	</div>
 	

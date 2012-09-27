@@ -9,6 +9,7 @@ $this->breadcrumbs=array(
 	$model->name,
 );
 
+/*
 $this->menu=array(
 	array('label'=>'List Family', 'url'=>array('index')),
 	array('label'=>'Create Family', 'url'=>array('create')),
@@ -16,6 +17,7 @@ $this->menu=array(
 	array('label'=>'Delete Family', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage Family', 'url'=>array('admin')),
 );
+*/
 ?>
 
 <h1>View Family #<?php echo $model->id; ?></h1>

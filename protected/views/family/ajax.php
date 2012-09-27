@@ -20,4 +20,4 @@
 			</span>
 			<span class="column"><input name="Participant[<?php echo $id; ?>][mail]" id="Participant_phone" type="text" maxlength="45"></span>
 			<span class="column"><input name="Participant[<?php echo $id; ?>][phone]" id="Participant_phone" type="text" maxlength="45"></span>
-		</div>
+		</div><br /><br />

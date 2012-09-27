@@ -7,10 +7,10 @@ $this->breadcrumbs=array(
 	'Create',
 );
 
-$this->menu=array(
-	array('label'=>'List Family', 'url'=>array('index')),
-	array('label'=>'Manage Family', 'url'=>array('admin')),
-);
+//$this->menu=array(
+//	array('label'=>'List Family', 'url'=>array('index')),
+//	array('label'=>'Manage Family', 'url'=>array('admin')),
+//);
 ?>
 
 <h1>Inscription pour <?php echo $modelProject->title ?></h1>
