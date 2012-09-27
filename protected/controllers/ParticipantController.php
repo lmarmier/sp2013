@@ -126,7 +126,10 @@ class ParticipantController extends Controller
 	 * Lists all models.
 	 */
 	public function actionIndex($id = null)
-	{	if($id == null){
+	{	
+		$model = new Participant('search');
+		/*
+		if($id == null){
 			$dataProvider=new CActiveDataProvider('Participant');
 		}
 		else{
@@ -137,8 +140,9 @@ class ParticipantController extends Controller
 				),
 			));
 		}
+		*/
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+			'model'=>$model,
 		));
 	}
 

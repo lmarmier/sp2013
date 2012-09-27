@@ -23,6 +23,6 @@ $this->widget('zii.widgets.CListView', array(
 */
 
 $this->widget('zii.widgets.grid.CGridView', array(
-    'dataProvider'=>$dataProvider,
+    'dataProvider'=>$model->search(),
 ));
  ?>
