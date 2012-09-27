@@ -3,3 +3,4 @@ protected/runtime/
 themes/classic/views/
 .DS_Store
 protected/config/
+index.php
