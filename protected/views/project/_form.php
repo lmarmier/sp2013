@@ -86,6 +86,20 @@
 		Il n'est pas possible de sélectionner des souper, car le camp ne les propose pas.<br /><br />
 		<?php endif; ?>
 	</div>
+	<br />
+	<h3>Création de l'utilisateur</h3>
+	<div id="userForm">
+		<div class="row">
+			<?php echo $form->labelEx($user,'user'); ?> : 
+			<?php echo $form->textField($user,'user',array('size'=>20,'maxlength'=>100)); ?>
+			<?php echo $form->error($user,'user'); ?>
+		</div>
+		<div class="row">
+			<?php echo $form->labelEx($user,'password'); ?> : 
+			<?php echo $form->textField($user,'password',array('size'=>20,'maxlength'=>100)); ?>
+			<?php echo $form->error($user,'password'); ?>
+		</div>
+	</div>
 
 	
 	<?php echo $form->hiddenField($model, 'camp_id', array('value'=>$_GET['id'])); ?>

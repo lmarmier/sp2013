@@ -28,15 +28,15 @@ class ProjectController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('index'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','create','view'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -64,15 +64,32 @@ class ProjectController extends Controller
 	public function actionCreate($id)
 	{
 		$model=new Project;
+		$user=new User;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Project']))
+		if(isset($_POST['Project']) && isset($_POST['User']))
 		{
 			$model->attributes=$_POST['Project'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			$user->attributes=$_POST['User'];
+			$pwd=$_POST['User']['password'];
+			$user->password=md5($_POST['User']['password']);
+			if($model->save()){
+				$user->project_id=$model->id;
+				if($user->save()){
+					$name='=?UTF-8?B?'.base64_encode($model->title).'?=';
+					$subject='=?UTF-8?B?'.base64_encode($model->title).' - Service Pâques 2013?=';
+					$headers="From: Fabricants de joie <{info@fabricantsdejoie.ch}>\r\n".
+						"Reply-To: {info@fabricantsdejoie.ch}\r\n".
+						"MIME-Version: 1.0\r\n".
+						"Content-type: text/plain; charset=UTF-8";
+
+					mail($user->user,$subject,'Votre mots de passe : '. $pwd,$headers);
+					$this->redirect(array('view','id'=>$model->id));
+				}
+			}
+				
 		}
 		
 		//Chargement des information du camp
@@ -81,6 +98,7 @@ class ProjectController extends Controller
 
 		$this->render('create',array(
 			'model'=>$model,
+			'user'=>$user,
 			'campModel'=>$campModel,
 		));
 	}

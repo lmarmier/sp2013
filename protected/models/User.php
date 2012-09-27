@@ -31,6 +31,11 @@ class User extends CActiveRecord
 	{
 		return 'user';
 	}
+	
+	public function beforeSend(){
+		$this->password=md5($this->password);
+		return parent::beforeSend();
+	}
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -68,8 +73,8 @@ class User extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'user' => 'User',
-			'password' => 'Password',
+			'user' => 'E-mail',
+			'password' => 'Mots de passe',
 			'project_id' => 'Project',
 		);
 	}

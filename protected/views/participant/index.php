@@ -21,8 +21,9 @@ $this->widget('zii.widgets.CListView', array(
 	'itemView'=>'_view',
 ));
 */
-
+//CVarDumper::dump(User::model()->findByAttributes(array('user'=>Yii::app()->user->name))->project_id, 10, true);
 $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider'=>$model->search(),
+    'filter'=>$model,
 ));
  ?>

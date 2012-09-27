@@ -4,7 +4,7 @@ class ParticipantController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
-	 * using two-column layout. See 'protected/views/layouts/column2.php'.
+	 * using two-column layout. See 'protected/vi/Volumes/Macintosh%20HD/Users/lionel/Sites/sp2013/protected/controllers/ParticipantController.phpews/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
 
@@ -128,6 +128,13 @@ class ParticipantController extends Controller
 	public function actionIndex($id = null)
 	{	
 		$model = new Participant('search');
+		$project_id=(isset(User::model()->findByAttributes(array('user'=>Yii::app()->user->name))->project_id))?'='.User::model()->findByAttributes(array('user'=>Yii::app()->user->name))->project_id:'>=1';
+		$model = $model->with(array(
+			'family'=>array('condition'=>'form_id'.$project_id),
+		));
+		$model->unsetAttributes();
+		if(isset($_GET['Participant']))
+			$model->attributes=$_GET['Participant'];
 		/*
 		if($id == null){
 			$dataProvider=new CActiveDataProvider('Participant');
