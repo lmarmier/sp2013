@@ -48,6 +48,7 @@ class User extends CActiveRecord
 			array('user, password', 'required'),
 			array('project_id', 'numerical', 'integerOnly'=>true),
 			array('user, password', 'length', 'max'=>45),
+			array('user','unique'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, user, password, project_id', 'safe', 'on'=>'search'),

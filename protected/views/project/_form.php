@@ -87,6 +87,7 @@
 		<?php endif; ?>
 	</div>
 	<br />
+	<?php if($model->isNewRecord): ?>
 	<h3>Création de l'utilisateur</h3>
 	<div id="userForm">
 		<div class="row">
@@ -94,18 +95,12 @@
 			<?php echo $form->textField($user,'user',array('size'=>20,'maxlength'=>100)); ?>
 			<?php echo $form->error($user,'user'); ?>
 		</div>
-		<div class="row">
-			<?php echo $form->labelEx($user,'password'); ?> : 
-			<?php echo $form->textField($user,'password',array('size'=>20,'maxlength'=>100)); ?>
-			<?php echo $form->error($user,'password'); ?>
-		</div>
 	</div>
-
-	
 	<?php echo $form->hiddenField($model, 'camp_id', array('value'=>$_GET['id'])); ?>
+	<?php endif; ?>
 	
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Ajouter' : 'Mettre à jour'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

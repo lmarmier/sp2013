@@ -6,7 +6,7 @@
 <div class="view">
 
 	<b><?php echo CHtml::encode($data->title); ?></b> - du <?php echo CHtml::encode($data->startDate); ?> au <?php echo CHtml::encode($data->endDate); ?> - <?php echo ($data->night == 1)?"Camp (nuits comprises)":"Camps de jour"; ?> à <?php echo $data->camp['city']; ?><br />
-	<?php echo CHtml::link('Modifier le formulaire', array('project/update', 'id'=>$data->id)); ?> - <?php echo CHtml::link('Liste des participant', array('participant/index', 'id'=>$data->id)); ?> - ...
+	<?php echo CHtml::link('Modifier le formulaire', array('project/update', 'id'=>$data->id)); ?> - <?php echo CHtml::link('Liste des participant', array('participant/index', 'id'=>$data->id)); ?> - <?php echo CHtml::link('Afficher le formulaire', Yii::app()->baseURL.'/form/'.$data->id); ?>
 
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>

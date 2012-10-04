@@ -4,17 +4,14 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 
-<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
+<h1>Bienvenue sur le site de gestion des formulaire du <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
 
-<p>Congratulations! You have successfully created your Yii application.</p>
+<p>C'est ici que vous aurez pourrez gérer vos camps et vos formulaire afin de les intégrer sur le site de votre choix.</p>
 
-<p>You may change the content of this page by modifying the following two files:</p>
+<p>Pour commencer :</p>
 <ul>
-	<li>View file: <code><?php echo __FILE__; ?></code></li>
-	<li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
+	<li><?php echo CHtml::link('Ajouter un camp', array('camp/create')); ?></li>
+	<li><?php echo CHtml::link('Afficher la liste des camps', array('camp/index')); ?></li>
 </ul>
 
-<p>For more details on how to further develop this application, please read
-the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-should you have any questions.</p>
+<p>Si vous désirez d'autres information, vous pouvez me contactez à l'adresse suivante <?php echo CHtml::link('lionel.marmier@fabricantsdejoie.ch', 'mailto:lionel.marmier@fabricantsdejoie.ch'); ?></p>

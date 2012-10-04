@@ -27,16 +27,16 @@ class ParticipantController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array(),
+			array('deny',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array(''),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('view','index'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete',),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -127,14 +127,24 @@ class ParticipantController extends Controller
 	 */
 	public function actionIndex($id = null)
 	{	
+		$this->layout = "//layouts/column1";
+	
 		$model = new Participant('search');
-		$project_id=(isset(User::model()->findByAttributes(array('user'=>Yii::app()->user->name))->project_id))?'='.User::model()->findByAttributes(array('user'=>Yii::app()->user->name))->project_id:'>=1';
-		$model = $model->with(array(
-			'family'=>array('condition'=>'form_id'.$project_id),
-		));
-		$model->unsetAttributes();
-		if(isset($_GET['Participant']))
-			$model->attributes=$_GET['Participant'];
+		if($id==null){
+					$project_id=(isset(User::model()->findByAttributes(array('user'=>Yii::app()->user->name))->project_id))?'='.User::model()->findByAttributes(array('user'=>Yii::app()->user->name))->project_id:'>=1';
+		}
+		else{
+			if(User::model()->findByAttributes(array('user'=>Yii::app()->user->id))->project_id !== $id && Yii::app()->user->id != 'admin'){
+				$this->redirect(array('site/error'), true, '403');
+			}
+			$project_id='='.$id;
+		}
+			$model = $model->with(array(
+				'family'=>array('condition'=>'form_id'.$project_id),
+			));
+			$model->unsetAttributes();
+			if(isset($_GET['Participant']))
+				$model->attributes=$_GET['Participant'];	
 		/*
 		if($id == null){
 			$dataProvider=new CActiveDataProvider('Participant');

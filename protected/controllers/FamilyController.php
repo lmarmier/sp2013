@@ -28,15 +28,15 @@ class FamilyController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('create', 'ajax', 'view'),
+				'actions'=>array('ajax','create'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','index'),
+				'actions'=>array('index', 'view'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','ajax'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -51,6 +51,9 @@ class FamilyController extends Controller
 	 */
 	public function actionView($id)
 	{
+		if(User::model()->findByAttributes(array('user'=>Yii::app()->user->id))->project_id !== $this->loadModel($id)->form_id && Yii::app()->user->id != 'admin'){
+			$this->redirect(array('site/error'), true, '403');
+		}
 		$this->layout = "//layouts/column1";
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
@@ -150,7 +153,11 @@ class FamilyController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Family');
+		$dataProvider=new CActiveDataProvider('Family', array(
+			'criteria'=>array(
+				'condition'=>'form_id='.User::model()->findByAttributes(array('user'=>Yii::app()->user->id))->project_id,
+			),
+		));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

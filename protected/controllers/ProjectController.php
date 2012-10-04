@@ -27,17 +27,9 @@ class ProjectController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index'),
-				'users'=>array('@'),
-			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','create','view'),
-				'users'=>array('admin'),
+				  'actions'=>array('admin','delete','create','index','view','update'),
+				  'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -54,6 +46,22 @@ class ProjectController extends Controller
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
+	}
+	
+	/**
+	 * Generate a random passowrd
+	 */
+	public function pwgen($nb_car = 7, $chaine = 'azertyuiopqsdfghjklmwxcvbn123456789')
+	{
+	    $nb_lettres = strlen($chaine) - 1;
+	    $generation = '';
+	    for($i=0; $i < $nb_car; $i++)
+	    {
+	        $pos = mt_rand(0, $nb_lettres);
+	        $car = $chaine[$pos];
+	        $generation .= $car;
+	    }
+	    return $generation;
 	}
 	
 
@@ -73,8 +81,8 @@ class ProjectController extends Controller
 		{
 			$model->attributes=$_POST['Project'];
 			$user->attributes=$_POST['User'];
-			$pwd=$_POST['User']['password'];
-			$user->password=md5($_POST['User']['password']);
+			$pwd=$this->pwgen();
+			$user->password=md5($pwd);
 			if($model->save()){
 				$user->project_id=$model->id;
 				if($user->save()){
@@ -84,8 +92,10 @@ class ProjectController extends Controller
 						"Reply-To: {info@fabricantsdejoie.ch}\r\n".
 						"MIME-Version: 1.0\r\n".
 						"Content-type: text/plain; charset=UTF-8";
+						
+					$message="Bonjour,\r\n\r\nVotre projet à été ajouté sur le site des fabricants de joie. Afin de vous connecter, nous vous transmettons vos identifiants :\r\n\r\n Login : $user->user \r\n Password : $pwd \r\n\r\n Vous pouvez vous connecter en vous rendant à l'adresse suivante : sp2013.lmarmier.ch";
 
-					mail($user->user,$subject,'Votre mots de passe : '. $pwd,$headers);
+					mail($user->user,$subject,$message);
 					$this->redirect(array('view','id'=>$model->id));
 				}
 			}
