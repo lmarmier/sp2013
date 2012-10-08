@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'toonishregular';
+    src: url('../fonts/toonish-webfont.eot');
+    src: url('../fonts/toonish-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/toonish-webfont.woff') format('woff'),
+         url('../fonts/toonish-webfont.ttf') format('truetype'),
+         url('../fonts/toonish-webfont.svg#toonishregular') format('svg');
+
+}
+
+
+
