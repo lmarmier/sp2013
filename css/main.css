@@ -1,3 +1,5 @@
+
+
 body
 {
 	margin: 0;
@@ -19,7 +21,6 @@ body
 {
 	margin: 0;
 	padding: 0;
-	border-top: 3px solid #C9E0ED;
 }
 
 #content
@@ -32,19 +33,31 @@ body
 	padding: 20px 20px 20px 0;
 }
 
-#footer
+#footer 
 {
-	padding: 10px;
-	margin: 10px 20px;
+	/*padding-top: 10px;
+	margin: 10px 20px;*/
 	font-size: 0.8em;
-	text-align: center;
-	border-top: 1px solid #C9E0ED;
-}
+	text-align: right;
+	/*border-top: 1px solid #C9E0ED;*/
+	background:  url('../images/foot.png') no-repeat left top;
+	height: 60px;
 
+}
+#footer p
+{
+	padding: 10px 10px;
+	color: white;
+	/*margin: 10px 20px;*/
+	}
 #logo
 {
-	padding: 10px 20px;
-	font-size: 200%;
+	padding: 20px 20px;
+	letter-spacing: 3px;
+	color: #ffffff;
+	font: 4em toonishregular;
+	background:url('../images/bg.jpg') no-repeat left top;
+	height: 150px;
 }
 
 #mainmenu
