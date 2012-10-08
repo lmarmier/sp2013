@@ -2,5 +2,8 @@ assets/
 protected/runtime/
 themes/classic/views/
 .DS_Store
-protected/config/
 index.php
+sp2013.esproj
+protected/config/
+
+	
