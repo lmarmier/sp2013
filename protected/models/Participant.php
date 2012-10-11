@@ -79,6 +79,7 @@ class Participant extends CActiveRecord
 			'phone'=>'Natel',
 			'birthdate' => 'Date d\'anniversaire',
 			'family_id' => 'Id de la famille',
+			'comment'=>'Commentaire',
 		);
 	}
 

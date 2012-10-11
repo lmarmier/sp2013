@@ -371,3 +371,11 @@ div.search-form
 {
 	background: #80CFFF;
 }
+
+tr{
+	background-color: #cd5a5a;
+}
+
+tr.check{
+	background-color: #85bd85;
+}

@@ -51,9 +51,23 @@ class ParticipantController extends Controller
 	 */
 	public function actionView($id)
 	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
+		$model = $this->loadModel($id);
+		$model->check = "check";
+		$model->save();
+		
+		$view = $this->render('view',array(
+			'model'=>$model,
+		),'true');
+		
+		echo $view;
+		
+		//Envoi du mail au participant
+		$headers="From: Fabricants de joie <{info@fabricantsdejoie.ch}>\r\n".
+						"Reply-To: {info@fabricantsdejoie.ch}\r\n".
+						"MIME-Version: 1.0\r\n".
+						"Content-type: text/html; charset=UTF-8";
+		
+		mail($model->mail,'Confirmation de votre inscription au service pâques 2012',$view,$headers);
 	}
 
 	/**
@@ -173,6 +187,7 @@ class ParticipantController extends Controller
 		if(isset($_GET['Participant']))
 			$model->attributes=$_GET['Participant'];
 
+		//$model->setCriteria(array('order'=>'DESC'));
 		$this->render('admin',array(
 			'model'=>$model,
 		));

@@ -98,7 +98,7 @@ class Family extends CActiveRecord
 			'form_id' => 'Identifiant du projet',
 			'mail' => 'Mail',
 			'phone' => 'Téléphone',
-			'created' => 'Date de création',
+			'created' => 'Date dinscription',
 		);
 	}
 

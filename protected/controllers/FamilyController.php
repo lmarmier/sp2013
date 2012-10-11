@@ -68,21 +68,26 @@ class FamilyController extends Controller
 	{
 		$this->layout = "//layouts/column1";
 		$model=new Family;
+		$modelParticipant = new Participant;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
+		$this->performAjaxValidation($modelParticipant);
 
 		if(isset($_POST['Family']))
 		{
 			//CVarDumper::dump($_POST, 10, true);
 			//*
 			$model->attributes=$_POST['Family'];
+			//$p = new array();
 			if($model->save()){
 				foreach($_POST['Participant'] as $participant){
 					$modelParticipant = new Participant;
 					$modelParticipant->attributes=$participant;
 					$modelParticipant->family_id=$model->id;
 					$modelParticipant->save();
+					//Ajout du tableau des id des participant
+					$part[] = $modelParticipant;
 				}
 				foreach($_POST['Participation'] as $d => $p){
 					$modelParticipation = new Participation;
@@ -93,8 +98,32 @@ class FamilyController extends Controller
 					$modelParticipation->save();
 				}
 				
+				//CVarDumper::dump($part,10,true);
+				/*
+				foreach($part as $pa){
+					echo $pa->id;
+					$model = new Participant;
+					$model->findByPk($pa->id);
 				
-				$this->redirect(array('view','id'=>$model->id));	
+					//Envoi du mail au participant
+					$message = $this->render('viewP', array(
+						'model'=>$model,
+					), true);
+					
+					$headers="From: Fabricants de joie <{info@fabricantsdejoie.ch}>\r\n".
+							"Reply-To: {info@fabricantsdejoie.ch}\r\n".
+							"MIME-Version: 1.0\r\n".
+							"Content-type: text/html; charset=UTF-8";
+		
+					mail($pa->mail,'Confirmation de votre inscription au service pâques 2012',$message,$headers);
+				}
+				//*/
+				
+				//$this->redirect(array('view','id'=>$model->id));
+				$this->render('success');
+				
+				
+				exit;	
 			}
 			//*
 		}

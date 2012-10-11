@@ -14,7 +14,7 @@
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'family-form',
-	'enableAjaxValidation'=>false,
+	'enableAjaxValidation'=>true,
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -81,6 +81,9 @@
 			    'options'=>array(
 			        'showAnim'=>'fold',
 			        'dateFormat'=>'yy-mm-dd',
+			        'changeMonth'=>true,
+			        'changeYear'=>true,
+			        'yearRange'=>'c-90'
 			    ),
 			    'htmlOptions'=>array(
 			    ),

@@ -39,20 +39,25 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'model'=>$model,
 )); ?>
 </div><!-- search-form -->
+<?php  
+	$t = $model->search();
+	$t->setCriteria(array('with'=>'family','order'=>'family.created DESC'));
+	//CVarDumper::dump($t,10,true);
+?>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'participant-grid',
-	'dataProvider'=>$model->search(),
+	'dataProvider'=>$t,
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
-		'lastName',
 		'gender',
+		'lastName',
 		'name',
 		'birthdate',
-		'family_id',
+		'family.created',
 		array(
 			'class'=>'CButtonColumn',
 		),
 	),
+	'rowCssClassExpression'=>'$data->check',
 )); ?>
