@@ -210,13 +210,13 @@ float: right;
 }
 .oubien{
 	width: 265px;
-	margin:  10px 0 10px 80px;
+	margin:  10px 0 10px 82px;
 }
 .homebtn {
 	list-style: none;
-	margin-top: 20px;
 	padding:0;
 	width: 265px;
+	margin: 20px auto;
 }
 .ajoutercamp {
 

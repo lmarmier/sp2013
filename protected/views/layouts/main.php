@@ -33,7 +33,7 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 							array('label'=>'Accueil', 'url'=>array('/site')),
-				array('label'=>'Camps', 'url'=>array(''), 'items'=>array(
+				array('label'=>'Camps', 'url'=>array('/camp'), 'items'=>array(
 					//array('label'=>'Ajouter', 'url'=>array('/camp/create')),
 					//array('label'=>'Gérer', 'url'=>array('/camp/index'))
 				)),
