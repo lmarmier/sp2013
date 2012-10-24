@@ -25,7 +25,7 @@
 
 <div class="container" id="page">
 
-	<div id="header">
+	<!--<div id="header">
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?> <br/> gestion des inscriptions</div>
 	</div><!-- header -->
 
