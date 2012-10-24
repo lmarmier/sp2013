@@ -168,7 +168,7 @@ function age($naiss)  {
 </table>
 
 <?php 
-	if($model->form->daySelect == false && $model->form->day == true){
+	if($model->form->daySelect == false){
 		$priceDays = $nb*$model->form->priceByDay;
 		echo 'Les participants participent à toutes les journées Prix : '.$priceDays.' CHF<br />';
 	}
