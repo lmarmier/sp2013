@@ -56,6 +56,8 @@ function age($naiss)  {
   
 $age = age($model->birthdate);
 
+//echo $model->birthdate;
+
 echo 'Age du participants : '. $age;
 
  ?>

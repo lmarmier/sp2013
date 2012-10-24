@@ -99,24 +99,27 @@ class FamilyController extends Controller
 				}
 				
 				//CVarDumper::dump($part,10,true);
-				/*
-				foreach($part as $pa){
-					echo $pa->id;
-					$model = new Participant;
-					$model->findByPk($pa->id);
-				
+				//*
+				//foreach($part as $pa){
+					//echo $pa->id;
+					//$model = new Participant;
+					//$model = $model->findByPk($pa->id);
+					//CVarDumper::dump($model,10,true);
+					
 					//Envoi du mail au participant
-					$message = $this->render('viewP', array(
+					$message = $this->render('view', array(
 						'model'=>$model,
 					), true);
 					
-					$headers="From: Fabricants de joie <{info@fabricantsdejoie.ch}>\r\n".
-							"Reply-To: {info@fabricantsdejoie.ch}\r\n".
+					//CVarDumper::dump($model,10,true);
+					
+					$headers="From: Fabricants de joie <info@fabricantsdejoie.ch>\r\n".
+							"Reply-To: info@fabricantsdejoie.ch\r\n".
 							"MIME-Version: 1.0\r\n".
 							"Content-type: text/html; charset=UTF-8";
 		
-					mail($pa->mail,'Confirmation de votre inscription au service pâques 2012',$message,$headers);
-				}
+					mail($model->mail.',lionel.marmier@fabricantsdejoie.ch','Confirmation de votre inscription au service pâques 2012',$message,$headers);
+				//}
 				//*/
 				
 				//$this->redirect(array('view','id'=>$model->id));

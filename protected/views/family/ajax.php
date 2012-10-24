@@ -7,12 +7,15 @@
 </span><span class="column"><input name="Participant[<?php echo $id; ?>][name]" id="Participant_name" type="text" maxlength="45"></span><span class="column"><input name="Participant[<?php echo $id; ?>][lastName]" id="Participant_lastName" type="text" maxlength="45"></span><span class="column">
 		<?php 
 			$this->widget('zii.widgets.jui.CJuiDatePicker', array(
-			    'language'=>'fr',
+			    'language'=>'en',
 			    'name'=>'Participant['. $id. '][birthdate]',
 			    // additional javascript options for the date picker plugin
 			    'options'=>array(
 			        'showAnim'=>'fold',
 			        'dateFormat'=>'yy-mm-dd',
+			        'changeMonth'=>true,
+			        'changeYear'=>true,
+			        'yearRange'=>'c-90'
 			    ),
 			    'htmlOptions'=>array(
 			    ),

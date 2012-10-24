@@ -62,12 +62,14 @@ class ParticipantController extends Controller
 		echo $view;
 		
 		//Envoi du mail au participant
+		/*
 		$headers="From: Fabricants de joie <{info@fabricantsdejoie.ch}>\r\n".
 						"Reply-To: {info@fabricantsdejoie.ch}\r\n".
 						"MIME-Version: 1.0\r\n".
 						"Content-type: text/html; charset=UTF-8";
 		
 		mail($model->mail,'Confirmation de votre inscription au service pâques 2012',$view,$headers);
+		//*/
 	}
 
 	/**

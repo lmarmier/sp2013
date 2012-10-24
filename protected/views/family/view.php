@@ -36,12 +36,48 @@ $this->menu=array(
 		'mail',
 		'phone',
 	),
-)); ?>
+)); 
+
+//Caclule de l'age du participants
+function age($naiss)  {
+	list($annee, $mois, $jour) = preg_split('[-]', $naiss);
+		$today['mois'] = date('n');
+		$today['jour'] = date('j');
+		$today['annee'] = date('Y');
+		$annees = $today['annee'] - $annee;
+		if ($today['mois'] <= $mois) {
+			if ($mois == $today['mois']) {
+		    	if ($jour > $today['jour'])
+		        	$annees--;
+		    }
+		    else
+		    	$annees--;
+		}
+		return $annees;
+}
+
+?>
+
 
 <h2>Participants</h2>
 <?php 
+	$payant=0;
+	$gratuit=0;
+
 	foreach($model->participants as $p){
-		echo '- '. $p->gender. ' '. $p->name. ' '. $p->lastName. ' - né le '. $timestamp->formatDateTime($p->birthdate, 'medium', false). ' - '. $p->phone. '<br />';
+		
+		//Déterminons l'age du particiapant
+		$age = age($p->birthdate);
+		
+		//Calcule du nombre de participants gratuit et payant
+		if($age >= 6){
+			$payant++;
+		}
+		else{
+			$gratuit++;
+		}
+
+		echo '- '. $p->gender. ' '. $p->name. ' '. $p->lastName. ' - né le '. $timestamp->formatDateTime($p->birthdate, 'medium', false). ' - '. $p->phone. ' Age : '. $age. ' ans<br />';
 	}
 
 ?>
@@ -153,5 +189,8 @@ $this->menu=array(
 <br />
 
 <p>
-	Prix total : <?php echo $priceNights+$priceDays+$priceLunchs+$priceDinners; ?> CHF.
+	Prix total (par participant payant) : <?php echo $prixTotal = $priceNights+$priceDays+$priceLunchs+$priceDinners; ?> CHF.
+</p>
+<p>
+	Prix pour la famille (<?php echo $payant ?> participant payant et <?php echo $gratuit ?> participant gratuit) : <?php echo $prixTotal*$payant; ?> CHF.
 </p>
