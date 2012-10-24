@@ -32,23 +32,24 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
+							array('label'=>'Accueil', 'url'=>array('/site')),
 				array('label'=>'Camps', 'url'=>array(''), 'items'=>array(
 					//array('label'=>'Ajouter', 'url'=>array('/camp/create')),
 					//array('label'=>'Gérer', 'url'=>array('/camp/index'))
 				)),
 				array('label'=>'Projet', 'url'=>array('/project/index')),
-				array('label'=>'Participant', 'url'=>array('/participant/admin')),
+				array('label'=>'Participants', 'url'=>array('/participant/admin')),
 				
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
 		)); ?>
 	</div><!-- mainmenu -->
-	<?php if(isset($this->breadcrumbs)):?>
+<!-- <?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
+		)); ?>
+	<?php endif?><!-- breadcrumbs -->
 
 	<?php echo $content; ?>
 

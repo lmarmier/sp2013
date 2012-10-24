@@ -77,7 +77,7 @@
 		<?php if($campModel->lunch == 1): ?>
 		<?php echo $form->checkBox($model,'lunch'); ?> <?php echo $form->labelEx($model,'lunch'); ?> : <?php echo $form->textField($model,'priceByLunch', array('size'=>2,'maxlength'=>3)); ?> CHF <?php echo $form->checkBox($model,'lunchSelect'); ?> proposer la séléction des dîner.<br />
 		<?php else: ?>
-		Il n'est pas possible de sélectionner des dîner, car le camp ne les propose pas.<br /><br />
+		Il n'est pas possible de sélectionner des dîners, car le camp ne les propose pas.<br /><br />
 		<?php endif; ?>
 		
 		<?php if($campModel->dinner == 1): ?>

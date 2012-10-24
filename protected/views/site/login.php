@@ -9,8 +9,7 @@ $this->pageTitle=Yii::app()->name . ' - Login';
 );*/
 ?>
 <div id="login">
-<h1>Connection</h1>
-
+<img src="../images/logosp.png">
 <!-- <p>Please fill out the following form with your login credentials:</p> -->
 
 <div class="form">
@@ -37,7 +36,7 @@ $this->pageTitle=Yii::app()->name . ' - Login';
 	</div>
 	
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('connection'); ?>
+		<?php echo CHtml::submitButton('connexion'); ?>
 	</div>
 <div class="row rememberMe">
 	<?php echo $form->checkBox($model,'rememberMe'); ?>

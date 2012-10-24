@@ -12,7 +12,7 @@ background:  url('../images/bg_body.png') repeat left top;
 #page
 {
 		margin-bottom: 5px;
-	background: white;
+	background: none;
 	/*border: 1px solid #C9E0ED;*/
 }
 
@@ -20,6 +20,8 @@ background:  url('../images/bg_body.png') repeat left top;
 {
 	margin: 0;
 	padding: 0;
+	height: 150px;
+	background:url('../images/bg.jpg') no-repeat left top;
 }
 
 #content
@@ -156,6 +158,107 @@ div.form .errorMessage {
  #login h1, #login {
  	color: white;
  }
+/*------------------------- end login page -------------------------------*/
+
+/* ------------------------------ page d'accueil -------------------------------*/
+
+#accueilcont {
+	width:655px;
+	margin-left:auto;
+	margin-right: auto;
+}
+
+
+#accueil{
+	float: left;
+	width: 250px;
+		margin:0px 0 40px 0 ;
+		padding: 50px 50px 10px 50px;
+		text-align: center;
+				color: white;
+			-webkit-animation: login 1s ease-in-out;
+			-moz-animation: login 1s ease-in-out;
+			-ms-animation: login 1s ease-in-out;
+			-o-animation: login 1s ease-in-out;
+			animation: login 1s ease-in-out;
+			
+			font-family: sans-serif;
+			
+			background-color: #323B55;
+			background-image: -webkit-linear-gradient(bottom, #323B55 0%, #424F71 100%);
+			background-image: -moz-linear-gradient(bottom, #323B55 0%, #424F71 100%);
+			background-image: -o-linear-gradient(bottom, #323B55 0%, #424F71 100%);
+			background-image: -ms-linear-gradient(bottom, #323B55 0%, #424F71 100%);
+			background-image: linear-gradient(bottom, #323B55 0%, #424F71 100%);
+			-webkit-border-radius: 20px;
+			-moz-border-radius: 20px;
+			border-radius: 20px;
+			
+	-webkit-box-shadow: 0px 0px 12px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    0px 0px 12px rgba(50, 50, 50, 0.75);
+	box-shadow:         0px 0px 12px rgba(50, 50, 50, 0.75);
+		
+	
+	
+}
+#accueil h1{
+	color: white;
+}
+.homebtn{
+float: right;
+
+}
+.oubien{
+	width: 265px;
+	margin:  10px 0 10px 80px;
+}
+.homebtn {
+	list-style: none;
+	margin-top: 20px;
+	padding:0;
+	width: 265px;
+}
+.ajoutercamp {
+
+	background: url('../images/addcamp.png') no-repeat left top;
+	width: 265px;
+	height: 104px;
+	margin: 0;
+	padding: 0;
+
+}
+	.affichercamp {
+
+	background: url('../images/discamp.png') no-repeat left top;
+width: 265px;
+height: 104px;
+	margin: 0;
+		padding: 0;
+		
+	}
+	
+.ajoutercamp a{
+padding: 25px 10px 0 110px;
+display: block;
+	text-decoration: none;
+	color: white;
+	font-size: 24px;
+	text-align: left;
+	text-transform: uppercase;
+
+}
+.affichercamp a{
+padding: 20px 10px 0 110px;
+display: block;
+	text-decoration: none;
+	color: white;
+	font-size: 18px;
+	text-align: left;
+	text-transform: uppercase;
+
+}
+
+/* --------------------------- end page d'accueil --------------------*/
 
 #sidebar
 {
@@ -190,41 +293,78 @@ border-bottom-left-radius: 12px;
 	letter-spacing: 3px;
 	color: #ffffff;
 	font: 4em toonishregular;
-	background:url('../images/bg.jpg') no-repeat left top;
-	height: 130px;
+	
+
 }
 
 #mainmenu
 {
-	background:white url(bg.gif) repeat-x left top;
+	background:none;
+	text-transform: uppercase;
+
 }
+
 
 #mainmenu ul
 {
-	padding:6px 20px 5px 20px;
-	margin:0px;
+	padding:5px 20px 5px 20px;
+	margin:12px 0 0 0;
+
+	
 }
 
 #mainmenu ul li
 {
 	display: inline;
+	margin-right: 8px;
+
+	
 }
 
 #mainmenu ul li a
 {
-	color:#ffffff;
-	background-color:transparent;
-	font-size:12px;
-	font-weight:bold;
-	text-decoration:none;
-	padding:5px 8px;
+padding: 5px;
+	
+	color: #fff;
+	font-size: 14px;
+		text-shadow: 0px -1px 0px #5b6ddc;
+	outline: none;
+	border: 1px solid rgba(55, 83, 97, 0.46);
+	text-decoration: none;
+
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding-box;
+	background-clip: padding-box;
+	border-radius: 3px;
+
+	background-color: #5466da;
+	background-image: -webkit-linear-gradient(bottom, #5466da 0%, #768ee4 100%);
+	background-image: -moz-linear-gradient(bottom, #5466da 0%, #768ee4 100%);
+	background-image: -o-linear-gradient(bottom, #5466da 0%, #768ee4 100%);
+	background-image: -ms-linear-gradient(bottom, #5466da 0%, #768ee4 100%);
+	background-image: linear-gradient(bottom, #5466da 0%, #768ee4 100%);
+	
+	
+	cursor: pointer;
+
+	-webkit-transition: all .1s ease-in-out;
+	-moz-transition: all .1s ease-in-out;
+	-o-transition: all .1s ease-in-out;
+	-ms-transition: all .1s ease-in-out;
+	transition: all .1s ease-in-out;
+	-moz-box-shadow: 0 0 4px #7c7c7c;
+	-webkit-box-shadow: 0 0 4px #7c7c7c;
+	box-shadow: 0 0 4px #7c7c7c;
 }
 
 #mainmenu ul li a:hover, #mainmenu ul li.active a
 {
-	color: #6399cd;
-	background-color:#EFF4FA;
+	color: white;
 	text-decoration:none;
+	-moz-box-shadow: 0 0 9px #7c7c7c;
+	-webkit-box-shadow: 0 0 9px #7c7c7c;
+	box-shadow: 0 0 9px #7c7c7c;
+	
 }
 
 div.flash-error, div.flash-notice, div.flash-success
