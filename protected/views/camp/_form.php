@@ -31,8 +31,10 @@
 		    'language'=>'fr',
 		    // additional javascript options for the date picker plugin
 		    'options'=>array(
+		    	'defaultDate'=>'2013-03-01',
 		        'showAnim'=>'fold',
 		        'dateFormat'=>'yy-mm-dd',
+		        //'onClose'=>'function( selectedDate ) {$( "#Camp_startDate" ).datepicker( "option", "maxDate", selectedDate );}',
 		    ),
 		    'htmlOptions'=>array(
 		    ),
@@ -49,20 +51,21 @@
 		    'language'=>'fr',
 		    // additional javascript options for the date picker plugin
 		    'options'=>array(
+		    	'defaultDate'=>'2013-03-01',
 		        'showAnim'=>'fold',
 		        'dateFormat'=>'yy-mm-dd',
+		        //'onClose'=>'function( selectedDate ) {$( "#Camp_startDate" ).datepicker( "option", "minDate", selectedDate );}',
 		    ),
 		    'htmlOptions'=>array(
 		    ),
 		)); ?>
 		<?php //echo $form->textField($model,'endDate'); ?>
 		<?php echo $form->error($model,'endDate'); ?>
-
 	</div>
 	
 	<div class="row">
 		<?php echo $form->labelEx($model,'priceByDay'); ?> : 
-		<?php echo $form->textField($model,'priceByDay', array('size'=>2,'maxlength'=>3)); ?> CHF <?php echo $form->checkBox($model,'daySelect'); ?> proposer la séléction des jours.
+		<?php echo $form->textField($model,'priceByDay', array('size'=>2,'maxlength'=>3,'value'=>15)); ?> CHF <?php echo $form->checkBox($model,'daySelect'); ?> proposer la séléction des jours.
 		<?php echo $form->error($model,'priceByDay'); ?>
 	</div>
 	
