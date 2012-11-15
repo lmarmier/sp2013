@@ -12,7 +12,7 @@ $this->pageTitle=Yii::app()->name . ' - Login';
 <img src="../images/logosp.png">
 <!-- <p>Please fill out the following form with your login credentials:</p> -->
 
-<div class="form">
+<div class="formlogin">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'login-form',
 	'enableClientValidation'=>true,

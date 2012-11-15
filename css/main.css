@@ -29,6 +29,15 @@ background:  url('../images/bg_body.png') repeat left top;
     padding: 20px;
 }
 
+.toonish{
+	font-family: 'toonishregular';
+	font-weight: normal;
+	letter-spacing: 2px;}
+	
+	.inline {
+		display: inline-block;
+	}
+
 /*-----------------login page---------------------------*/
 .container_login 
 #login {
@@ -60,7 +69,7 @@ background:  url('../images/bg_body.png') repeat left top;
 box-shadow:         0px 0px 12px rgba(50, 50, 50, 0.75);
 	
 }
-.form{
+.form_login{
 	width: 250px;
 }
 
@@ -259,6 +268,75 @@ display: block;
 }
 
 /* --------------------------- end page d'accueil --------------------*/
+
+/*------------------------ formulaire inscription -------------------------- */
+
+#family-form {
+	margin-top: 2em;
+}
+
+
+#family-form h2 {
+background: url('../images/back_titre.png') no-repeat left top;
+	color: white;
+	width: 328px;
+	height: 60px;
+	padding: 20px 20px 0 40px;
+	margin:0;
+	z-index: 9999;
+	position: relative;
+	
+}
+.containerinscr{
+	width: 890px;
+	margin: 2em auto;
+	background: url('../images/back_inscr.png') no-repeat left bottom !important;
+
+}
+
+/*bloc famille*/
+#familleblock{
+	
+background-color: white;
+border-radius: 12px; 
+-moz-border-radius: 12px; 
+-webkit-border-radius: 12px; 
+border: 1px solid #FFFFFF;
+margin:  -30px 0 30px 50px;
+padding: 20px;
+}
+
+.fblock{
+	margin-right: 10px;
+}
+/* table participants*/
+
+#participants {
+	background-color: white;
+	border-radius: 12px; 
+	-moz-border-radius: 12px; 
+	-webkit-border-radius: 12px; 
+	border: 1px solid #FFFFFF;
+	margin:  -30px 0 0 50px;
+	padding: 20px 0 20px 20px;
+	
+}
+
+#statusId{
+	height: 5px;
+}
+.containerinscr tr{
+	background: none;
+}
+
+.containerinscr table{
+	/*background: #fff;*/
+}
+
+.containerinscr thead th{
+	background: none;
+	font-size: 1.4em;
+}
 
 #sidebar
 {

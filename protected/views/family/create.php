@@ -13,6 +13,6 @@ $this->breadcrumbs=array(
 //);
 ?>
 
-<h1>Inscription pour <?php echo $modelProject->title ?></h1>
+<h1 class="toonish">Inscription pour le projet <?php echo $modelProject->title ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model, 'modelProject'=>$modelProject, 'modelParticipant'=>$modelParticipant)); ?>

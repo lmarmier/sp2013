@@ -17,28 +17,24 @@
 	'enableAjaxValidation'=>true,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-	
-	<b>Adresse de la famille</b>
+		<h2 class="toonish">Adresse de la famille</h2>
 
+	<div id="familleblock">
 	<?php echo $form->errorSummary($model); ?>
-
+	
 	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
+		<span class="fblock"> <?php echo $form->labelEx($model,'name'); ?>
 		<?php echo $form->textField($model,'name',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'name'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'adresse'); ?>
+		<?php //echo $form->error($model,'name'); ?></span><span class="fblock">	
+	<?php echo $form->labelEx($model,'adresse'); ?>
 		<?php echo $form->textField($model,'adresse',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'adresse'); ?>
-	</div>
-
+		<?php //echo $form->error($model,'adresse'); ?>
+	</span>
+</div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'zip'); ?> et <?php echo $form->labelEx($model,'city'); ?>
 		<?php echo $form->textField($model,'zip',array('size'=>4,'maxlength'=>6)); ?> <?php echo $form->textField($model,'city',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'zip'); ?><?php echo $form->error($model,'city'); ?>
+		<?php // echo $form->error($model,'zip'); ?><?php //echo $form->error($model,'city'); ?>
 	</div>
 
 	<div class="row">
@@ -50,24 +46,22 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'mail'); ?>
+	<span>	<?php echo $form->labelEx($model,'mail'); ?>
 		<?php echo $form->textField($model,'mail',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'mail'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'phone'); ?>
+		<?php // echo $form->error($model,'mail'); ?>		</span><span>	<?php echo $form->labelEx($model,'phone'); ?>
 		<?php echo $form->textField($model,'phone'); ?>
-		<?php echo $form->error($model,'phone'); ?>
+		<?php //echo $form->error($model,'phone'); ?></span>
 	</div>
-	<br />
+	</div>
 	
-	<b>Participants</b><br /><br />
+		<br />
+	
+	<div><h2 class="toonish inline">Participants</h2> (Cliquez sur "ajouter" à la fin de la ligne pour ajouter un participant)</div>
 	<div id="participants">
-		<span class="column"><?php echo $form->labelEx($modelParticipant,'gender'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'name'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'lastName'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'birthdate'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'mail'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'phone'); ?></span>
+		<span class="column" style="width:90px"><?php echo $form->labelEx($modelParticipant,'gender'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'name'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'lastName'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'birthdate'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'mail'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'phone'); ?></span>
 			<br />
 		<div class="row">
-<span class="column"><select name="Participant[0][gender]" id="Participant_gender">
+<span class="column" style="width:90px"><select name="Participant[0][gender]" id="Participant_gender">
 	<option value="Monsieur">Monsieur</option>
 	<option value="Madame">Madame</option>
 </select>
@@ -91,23 +85,19 @@
 			</span>
 			<span class="column"><input name="Participant[0][mail]" id="Participant_phone" type="text" maxlength="45"></span>
 			<span class="column"><input name="Participant[0][phone]" id="Participant_phone" type="text" maxlength="45"></span>
+			<span claoss="column"><?php echo CHtml::ajaxButton("Ajouter", array('ajax'), array(
+				"data"=>"'id='+$('#statusId').text()",
+				"processData"=>false,
+				"success"=>"function(msg){jQuery(msg).appendTo('#participants');$('#statusId').html(eval($('#statusId').text()) + 1)}",
+			)); ?></span>
 			
 		</div>
 		
 		<span id="statusId" style="visibility: hidden">2</span>
 		
-		<div id="newParticipant">
-			<?php echo CHtml::ajaxButton("Ajouter", array('ajax'), array(
-				"data"=>"'id='+$('#statusId').text()",
-				"processData"=>false,
-				"success"=>"function(msg){jQuery(msg).appendTo('#participants');$('#statusId').html(eval($('#statusId').text()) + 1)}",
-			)); ?>
-		</div><br />
+			</div>
 	
-	</div>
-	
-	<br /><b>Participations</b><br /><br />
-	
+	<h2 class="toonish">Participations</h2><br />	
 	<?php if($modelProject->night || $modelProject->lunch || $modelProject->dinner): ?>
 	
 	<?php 
@@ -123,7 +113,7 @@
 	 ?>
 	
 		<table>
-			<thead>
+			<thead >
 				<tr>
 					<th>Date</th>
 					<?php if($modelProject->daySelect): ?>
@@ -190,6 +180,8 @@
 		</table>
 	
 	<?php endif; ?>
+	
+	<p class="note">Les champs marqués d'une <span class="required">*</span> sont obligatoires.</p>
 	
 	
 	<div class="row buttons">

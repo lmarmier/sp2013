@@ -66,7 +66,7 @@ class FamilyController extends Controller
 	 */
 	public function actionCreate($id=0)
 	{
-		$this->layout = "//layouts/column1";
+		$this->layout = "//layouts/inscrip";
 		$model=new Family;
 		$modelParticipant = new Participant;
 
