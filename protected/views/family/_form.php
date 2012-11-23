@@ -56,12 +56,12 @@
 	
 		<br />
 	
-	<div><h2 class="toonish inline">Participants</h2> (Cliquez sur "ajouter" à la fin de la ligne pour ajouter un participant)</div>
+	<div><h2 class="toonish inline">Participants</h2>(Cliquez sur "ajouter" à la fin de la ligne pour ajouter un participant)</div>
 	<div id="participants">
 		<span class="column" style="width:90px"><?php echo $form->labelEx($modelParticipant,'gender'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'name'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'lastName'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'birthdate'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'mail'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'phone'); ?></span>
 			<br />
 		<div class="row">
-<span class="column" style="width:90px"><select name="Participant[0][gender]" id="Participant_gender">
+<span class="column" style="width:81px"><select name="Participant[0][gender]" id="Participant_gender">
 	<option value="Monsieur">Monsieur</option>
 	<option value="Madame">Madame</option>
 </select>
@@ -97,7 +97,9 @@
 		
 			</div>
 	
-	<h2 class="toonish">Participations</h2><br />	
+	<h2 class="toonish">Participations</h2>
+	<div id="participations">
+	
 	<?php if($modelProject->night || $modelProject->lunch || $modelProject->dinner): ?>
 	
 	<?php 
@@ -180,13 +182,13 @@
 		</table>
 	
 	<?php endif; ?>
-	
-	<p class="note">Les champs marqués d'une <span class="required">*</span> sont obligatoires.</p>
-	
-	
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'S\'inscrire' : 'Save'); ?>
+
 	</div>
+		<div class="oneline">
+	<p class="note_bt">Les champs marqués d'une <span class="required">*</span> sont obligatoires.</p>
+	<div class="row_bt buttons">
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'S\'inscrire' : 'Save'); ?>
+	</div></div>
 
 <?php $this->endWidget(); ?>
 

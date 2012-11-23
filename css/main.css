@@ -270,18 +270,27 @@ display: block;
 /* --------------------------- end page d'accueil --------------------*/
 
 /*------------------------ formulaire inscription -------------------------- */
-
+.row_bt{
+	float: right;
+	margin-right: 20px;
+}
+.note_bt{
+	float: left;
+	margin-left: 70px;
+}
 #family-form {
 	margin-top: 2em;
 }
 
-
+.oneline{
+	
+}
 #family-form h2 {
 background: url('../images/back_titre.png') no-repeat left top;
 	color: white;
-	width: 328px;
+	width: 298px;
 	height: 60px;
-	padding: 20px 20px 0 40px;
+	padding: 20px 0 0 40px;
 	margin:0;
 	z-index: 9999;
 	position: relative;
@@ -290,7 +299,7 @@ background: url('../images/back_titre.png') no-repeat left top;
 .containerinscr{
 	width: 890px;
 	margin: 2em auto;
-	background: url('../images/back_inscr.png') no-repeat left bottom !important;
+	/*background: url('../images/back_inscr.png') no-repeat left bottom !important;*/
 
 }
 
@@ -311,16 +320,27 @@ padding: 20px;
 }
 /* table participants*/
 
-#participants {
+#participants{
 	background-color: white;
 	border-radius: 12px; 
 	-moz-border-radius: 12px; 
 	-webkit-border-radius: 12px; 
 	border: 1px solid #FFFFFF;
-	margin:  -30px 0 0 50px;
+	margin:  -30px 0 30px 50px;
 	padding: 20px 0 20px 20px;
 	
 }
+ #participations {
+	background-color: white;
+	border-radius: 12px; 
+	-moz-border-radius: 12px; 
+	-webkit-border-radius: 12px; 
+	border: 1px solid #FFFFFF;
+	margin:  -30px 0 10px 50px;
+	padding: 20px 0 20px 20px;
+	
+}
+
 
 #statusId{
 	height: 5px;
