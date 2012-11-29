@@ -55,6 +55,10 @@ class ParticipantController extends Controller
 		$model->check = "check";
 		$model->save();
 		
+		//CVarDumper::dump($model, 10, true);
+		
+		echo $model->family->name;
+		
 		$view = $this->render('view',array(
 			'model'=>$model,
 		),'true');

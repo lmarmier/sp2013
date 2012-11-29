@@ -59,8 +59,8 @@ class Family extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, zip, city, form_id, mail', 'required'),
-			array('zip, form_id, phone', 'numerical', 'integerOnly'=>true),
+			array('name, zip, city, form_id, mail, phone', 'required'),
+			array('zip, form_id', 'numerical', 'integerOnly'=>true),
 			array('name, mail', 'length', 'max'=>45),
 			array('adresse, city, project', 'length', 'max'=>100),
 			// The following rule is used by search().
