@@ -28,7 +28,7 @@ class ProjectController extends Controller
 	{
 		return array(
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				  'actions'=>array('admin','delete','create','index','view','update'),
+				  'actions'=>array('admin','delete','create','index','view','update','success'),
 				  'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -96,7 +96,8 @@ class ProjectController extends Controller
 					$message="Bonjour,\r\n\r\nVotre projet à été ajouté sur le site des fabricants de joie. Afin de vous connecter, nous vous transmettons vos identifiants :\r\n\r\n Login : $user->user \r\n Password : $pwd \r\n\r\n Vous pouvez vous connecter en vous rendant à l'adresse suivante : sp2013.lmarmier.ch";
 
 					mail($user->user,$subject,$message);
-					$this->redirect(array('view','id'=>$model->id));
+					//$this->redirect(array('view','id'=>$model->id));
+					$this->redirect(array('success','id'=>$model->id));
 				}
 			}
 				
@@ -111,6 +112,10 @@ class ProjectController extends Controller
 			'user'=>$user,
 			'campModel'=>$campModel,
 		));
+	}
+
+	public function actionSuccess($id){
+		$this->render('success',array('model'=>$this->loadModel($id)));
 	}
 
 	/**
