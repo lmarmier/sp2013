@@ -20,7 +20,7 @@ $this->menu=array(
 */
 ?>
 
-<h1>View Family #<?php echo $model->id; ?></h1>
+<h1>Confirmation d'inscription pour la famille <?php echo $model->name; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
@@ -30,7 +30,6 @@ $this->menu=array(
 		'adresse',
 		'zip',
 		'city',
-		'created',
 		'form.title',
 		'form_id',
 		'mail',
@@ -83,7 +82,7 @@ function age($naiss)  {
 ?>
 <br />
 <h2>Participations</h2>
-<p>Ici, vous trouverez la liste des jours et moments de participation pour tout les participants ci-dessus.</p>
+<p>Ici, vous trouverez la liste des jours et moments de participation pour tous les participants inscrits ci-dessus.</p>
 
 <table>
 	<caption></caption>
@@ -192,5 +191,5 @@ function age($naiss)  {
 	Prix total (par participant payant) : <?php echo $prixTotal = $priceNights+$priceDays+$priceLunchs+$priceDinners; ?> CHF.
 </p>
 <p>
-	Prix pour la famille (<?php echo $payant ?> participant payant et <?php echo $gratuit ?> participant gratuit) : <?php echo $prixTotal*$payant; ?> CHF.
+	Prix pour la famille (<?php echo $payant ?> participant(s) payant(s) et <?php echo $gratuit ?> participant(s) gratuit(s)) : <?php echo $prixTotal*$payant; ?> CHF.
 </p>
