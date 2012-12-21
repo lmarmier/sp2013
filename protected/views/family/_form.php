@@ -85,15 +85,15 @@
 			</span>
 			<span class="column"><input name="Participant[0][mail]" id="Participant_phone" type="text" maxlength="45"></span>
 			<span class="column"><input name="Participant[0][phone]" id="Participant_phone" type="text" maxlength="45"></span>
-			<span claoss="column"><?php echo CHtml::ajaxButton("Ajouter", array('ajax'), array(
+		
+						
+		</div>		<span id="statusId" style="visibility: hidden">2</span>
+		<div class="btnenvoi"><?php echo CHtml::ajaxButton("Ajouter", array('ajax'), array(
 				"data"=>"'id='+$('#statusId').text()",
 				"processData"=>false,
 				"success"=>"function(msg){jQuery(msg).appendTo('#participants');$('#statusId').html(eval($('#statusId').text()) + 1)}",
-			)); ?></span>
-			
-		</div>
+			)); ?></div>
 		
-		<span id="statusId" style="visibility: hidden">2</span>
 		
 			</div>
 	
