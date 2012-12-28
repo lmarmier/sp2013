@@ -17,7 +17,7 @@
 	'enableAjaxValidation'=>true,
 )); ?>
 
-		<h2 class="toonish">Adresse de la famille</h2>
+		<div><h2 class="toonish inline">Adresse de la famille</h2>(Inscrivez votre famille puis ajoutez chaque membre dans la partie "Participants")</div>
 
 	<div id="familleblock">
 	<?php echo $form->errorSummary($model); ?>
@@ -56,7 +56,11 @@
 	
 		<br />
 	
-	<div><h2 class="toonish inline">Participants</h2>(Cliquez sur "ajouter" à la fin de la ligne pour ajouter un participant)</div>
+	<div><h2 class="toonish inline">Participants</h2>(Cliquez sur "ajouter" pour ajouter un participant) <?php echo CHtml::ajaxButton("Ajouter", array('ajax'), array(
+			"data"=>"'id='+$('#statusId').text()",
+			"processData"=>false,
+			"success"=>"function(msg){jQuery(msg).appendTo('#participants');$('#statusId').html(eval($('#statusId').text()) + 1)}",
+		)); ?>	</div>
 	<div id="participants">
 		<span class="column" style="width:90px"><?php echo $form->labelEx($modelParticipant,'gender'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'name'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'lastName'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'birthdate'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'mail'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'phone'); ?></span>
 			<br />
@@ -88,12 +92,7 @@
 		
 						
 		</div>		<span id="statusId" style="visibility: hidden">2</span>
-		<div class="btnenvoi"><?php echo CHtml::ajaxButton("Ajouter", array('ajax'), array(
-				"data"=>"'id='+$('#statusId').text()",
-				"processData"=>false,
-				"success"=>"function(msg){jQuery(msg).appendTo('#participants');$('#statusId').html(eval($('#statusId').text()) + 1)}",
-			)); ?></div>
-		
+				
 		
 			</div>
 	

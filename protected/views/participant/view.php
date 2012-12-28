@@ -147,7 +147,7 @@ echo 'Age du participants : '. $age;
 <?php if($age > 6): ?>
 <p>Prix total : <?php echo $priceDays+$priceNights+$priceLunchs+$priceDinners; ?> CHF</p>
 <?php else: ?>
-<p>Les participants de moins de 6 ans, ne paye pas.</p>
+<p>Les participants de moins de 6 ans, ne payent pas.</p>
 <?php endif; ?>
 
 <?php echo CHtml::link('Voir la famille', array('/family/view', 'id'=>$model->family->id)); ?>
