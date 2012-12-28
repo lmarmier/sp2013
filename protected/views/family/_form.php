@@ -20,7 +20,7 @@
 		<div><h2 class="toonish inline">Adresse de la famille</h2>(Inscrivez votre famille puis ajoutez chaque membre dans la partie "Participants")</div>
 
 	<div id="familleblock">
-	<?php echo $form->errorSummary($model); ?>
+	<?php echo $form->errorSummary($model,'Les erreurs suivantes doivent êtres corrigées :'); ?>
 	
 	<div class="row">
 		<span class="fblock"> <?php echo $form->labelEx($model,'name'); ?>
