@@ -24,10 +24,10 @@
 	
 	<div class="row">
 		<span class="fblock"> <?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->textField($model,'name',array('size'=>35,'maxlength'=>45)); ?>
 		<?php //echo $form->error($model,'name'); ?></span><span class="fblock">	
 	<?php echo $form->labelEx($model,'adresse'); ?>
-		<?php echo $form->textField($model,'adresse',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->textField($model,'adresse',array('size'=>45,'maxlength'=>100)); ?>
 		<?php //echo $form->error($model,'adresse'); ?>
 	</span>
 </div>
@@ -65,7 +65,7 @@
 		<span class="column" style="width:90px"><?php echo $form->labelEx($modelParticipant,'gender'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'name'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'lastName'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'birthdate'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'mail'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'phone'); ?></span>
 			<br />
 		<div class="row">
-<span class="column" style="width:81px"><select name="Participant[0][gender]" id="Participant_gender">
+<span class="gender" ><select name="Participant[0][gender]" id="Participant_gender">
 	<option value="Monsieur">Monsieur</option>
 	<option value="Madame">Madame</option>
 </select>

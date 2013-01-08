@@ -282,6 +282,11 @@ display: block;
 	margin-top: 2em;
 }
 
+.gender
+	{float:left;margin-right:10px;width:81px;
+	}
+
+
 .oneline{
 	
 }
