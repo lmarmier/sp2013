@@ -118,7 +118,7 @@ class FamilyController extends Controller
 							"MIME-Version: 1.0\r\n".
 							"Content-type: text/html; charset=UTF-8";
 		
-					mail($model->mail.',lionel.marmier@fabricantsdejoie.ch','Confirmation de votre inscription au Service Pâques 2012',$message,$headers);
+					mail($model->mail.',lionel.marmier@fabricantsdejoie.ch, info@fabricantsdejoie.ch','[SP2013 '. $model->form->camp->city. '] - Confirmation de votre inscription au Service Pâques 2012',$message,$headers);
 				//}
 				//*/
 				

@@ -13,6 +13,7 @@
  * @property integer $form_id
  * @property string $mail
  * @property integer $phone
+ * @property integer $comment
  * @property string $created
  *
  * The followings are the available model relations:
@@ -63,6 +64,7 @@ class Family extends CActiveRecord
 			array('zip, form_id', 'numerical', 'integerOnly'=>true, 'message'=>'Le {attribute} doit être un nombre entier'),
 			array('name, mail', 'length', 'max'=>45, 'message'=>'Le {attribute} ne peut pas dépasser 45 caractères'),
 			array('adresse, city, project', 'length', 'max'=>100, 'message'=>'Le champ {attribute} ne peut dépasser 100 caractères'),
+			array('comment','safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, name, adresse, zip, city, project, form_id, mail, phone', 'safe', 'on'=>'search'),
@@ -98,6 +100,7 @@ class Family extends CActiveRecord
 			'form_id' => 'Identifiant du projet',
 			'mail' => 'Mail',
 			'phone' => 'Téléphone',
+			'comment' => 'Commentaire',
 			'created' => 'Date dinscription',
 		);
 	}

@@ -18,9 +18,12 @@ $this->menu=array(
 	array('label'=>'Manage Family', 'url'=>array('admin')),
 );
 */
+
+$reduction = 0;
+
 ?>
 
-<h1>Confirmation d'inscription pour la famille <?php echo $model->name; ?></h1>
+<h1>[SP2013 <?php echo $model->form->camp->city; ?>] - Confirmation d'inscription pour la famille <?php echo $model->name; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
@@ -36,6 +39,8 @@ $this->menu=array(
 		'phone',
 	),
 )); 
+
+echo '<br /> Commentaire : '.$model->comment.'<br /><br />';
 
 //Caclule de l'age du participants
 function age($naiss)  {
@@ -188,8 +193,18 @@ function age($naiss)  {
 <br />
 
 <p>
-	Prix total (par participant payant) : <?php echo $prixTotal = $priceNights+$priceDays+$priceLunchs+$priceDinners; ?> CHF.
+	Prix total (par participant payant) : <?php echo $prixTotal = $priceNights+$priceDays+$priceLunchs+$priceDinners; ?> CHF
 </p>
 <p>
-	Prix pour la famille (<?php echo $payant ?> participant(s) payant(s) et <?php echo $gratuit ?> participant(s) gratuit(s)) : <?php echo $prixTotal*$payant; ?> CHF.
+	Prix avant réduction : <?php echo $prixTotal*$payant; ?> CHF<br />
+	<?php if($payant == 3 || $payant == 4){
+		$reduction = $prixTotal*$payant*0.15;
+	} ?>
+	<?php if($payant >= 5){
+		$reduction = $prixTotal*$payant*0.25;
+	} ?>
+	Calcule des réductions : <?php echo $reduction; ?> CHF
+</p>
+<p>
+	Prix pour la famille (<?php echo $payant ?> participant(s) payant(s) et <?php echo $gratuit ?> participant(s) gratuit(s)) : <?php echo ($prixTotal*$payant)-$reduction; ?> CHF
 </p>

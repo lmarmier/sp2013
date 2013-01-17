@@ -50,11 +50,13 @@
 		<?php echo $form->textField($model,'mail',array('size'=>45,'maxlength'=>45)); ?>
 		<?php // echo $form->error($model,'mail'); ?>		</span><span>	<?php echo $form->labelEx($model,'phone'); ?>
 		<?php echo $form->textField($model,'phone'); ?>
-		<?php //echo $form->error($model,'phone'); ?></span>
+		<?php //echo $form->error($model,'phone'); ?>
+		<br /><?php echo $form->labelEx($model,'comment'); ?> <?php echo $form->textField($model,'comment'); ?></span>
 	</div>
 	</div>
 	
-		<br />
+		
+	<br />
 	
 	<div><h2 class="toonish inline">Participants</h2>(Cliquez sur "ajouter" pour ajouter un participant) <?php echo CHtml::ajaxButton("Ajouter", array('ajax'), array(
 			"data"=>"'id='+$('#statusId').text()",
