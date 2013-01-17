@@ -9,6 +9,10 @@ body
 background:  url('../images/bg_body.png') repeat left top;
 }
 
+/*email style*/
+.mail {background: none !important;
+	
+}
 #page
 {
 		margin-bottom: 5px;

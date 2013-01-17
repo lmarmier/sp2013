@@ -51,8 +51,12 @@
 		<?php // echo $form->error($model,'mail'); ?>		</span><span>	<?php echo $form->labelEx($model,'phone'); ?>
 		<?php echo $form->textField($model,'phone'); ?>
 		<?php //echo $form->error($model,'phone'); ?>
-		<br /><?php echo $form->labelEx($model,'comment'); ?> <?php echo $form->textField($model,'comment'); ?></span>
+	</span>
 	</div>
+	<div class="row">
+	<?php echo $form->labelEx($model,'comment'); ?> (allergies etc... Merci de spécifier pour quel membre de la famille)<br/> <?php echo $form->textArea($model,'comment',array('rows'=>10, 'cols'=>75)); ?>
+	</div>
+	
 	</div>
 	
 		

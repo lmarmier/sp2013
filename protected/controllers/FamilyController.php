@@ -105,7 +105,7 @@ class FamilyController extends Controller
 					//$model = new Participant;
 					//$model = $model->findByPk($pa->id);
 					//CVarDumper::dump($model,10,true);
-					
+					$this->layout = "//layouts/mail";
 					//Envoi du mail au participant
 					$message = $this->render('view', array(
 						'model'=>$model,
