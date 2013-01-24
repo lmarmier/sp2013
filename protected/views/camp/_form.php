@@ -65,15 +65,15 @@
 	
 	<div class="row">
 		<?php echo $form->labelEx($model,'priceByDay'); ?> : 
-		<?php echo $form->textField($model,'priceByDay', array('size'=>2,'maxlength'=>3,'value'=>15)); ?> CHF <?php echo $form->checkBox($model,'daySelect'); ?> proposer la séléction des jours.
+		<?php echo $form->textField($model,'priceByDay', array('size'=>2,'maxlength'=>5,'value'=>15)); ?> CHF <?php echo $form->checkBox($model,'daySelect'); ?> proposer la séléction des jours.
 		<?php echo $form->error($model,'priceByDay'); ?>
 	</div>
 	
 	<div id="optionsBlock">
 		<h3>Options</h3>
-		<?php echo $form->checkBox($model,'night'); ?> <?php echo $form->labelEx($model,'night'); ?> : <?php echo $form->textField($model,'priceByNight', array('size'=>2,'maxlength'=>3)); ?> CHF <?php echo $form->checkBox($model,'nightSelect'); ?> proposer la séléction des nuits.<br />
-		<?php echo $form->checkBox($model,'lunch'); ?> <?php echo $form->labelEx($model,'lunch'); ?> : <?php echo $form->textField($model,'priceByLunch', array('size'=>2,'maxlength'=>3)); ?> CHF <?php echo $form->checkBox($model,'lunchSelect'); ?> proposer la séléction des dîner.<br />
-		<?php echo $form->checkBox($model,'dinner'); ?> <?php echo $form->labelEx($model,'dinner'); ?> : <?php echo $form->textField($model,'priceByDinner', array('size'=>2,'maxlength'=>3)); ?> CHF <?php echo $form->checkBox($model,'dinnerSelect'); ?> proposer la séléction des souper.<br />
+		<?php echo $form->checkBox($model,'night'); ?> <?php echo $form->labelEx($model,'night'); ?> : <?php echo $form->textField($model,'priceByNight', array('size'=>2,'maxlength'=>5)); ?> CHF <?php echo $form->checkBox($model,'nightSelect'); ?> proposer la séléction des nuits.<br />
+		<?php echo $form->checkBox($model,'lunch'); ?> <?php echo $form->labelEx($model,'lunch'); ?> : <?php echo $form->textField($model,'priceByLunch', array('size'=>2,'maxlength'=>5)); ?> CHF <?php echo $form->checkBox($model,'lunchSelect'); ?> proposer la séléction des dîner.<br />
+		<?php echo $form->checkBox($model,'dinner'); ?> <?php echo $form->labelEx($model,'dinner'); ?> : <?php echo $form->textField($model,'priceByDinner', array('size'=>2,'maxlength'=>5)); ?> CHF <?php echo $form->checkBox($model,'dinnerSelect'); ?> proposer la séléction des souper.<br />
 	</div>
 
 	
