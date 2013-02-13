@@ -68,10 +68,16 @@
 			"success"=>"function(msg){jQuery(msg).appendTo('#participants');$('#statusId').html(eval($('#statusId').text()) + 1)}",
 		)); ?>	</div>
 	<div id="participants">
-		<span class="column" style="width:90px"><?php echo $form->labelEx($modelParticipant,'gender'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'name'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'lastName'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'birthdate'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'mail'); ?></span><span class="column"><?php echo $form->labelEx($modelParticipant,'phone'); ?></span>
+		<span class="column" style="width:90px"><?php echo $form->labelEx($modelParticipant,'gender'); ?></span>
+		<span class="column"><?php echo $form->labelEx($modelParticipant,'name'); ?></span>
+		<span class="column"><?php echo $form->labelEx($modelParticipant,'lastName'); ?></span>
+		<span class="column"><?php echo $form->labelEx($modelParticipant,'birthdate'); ?></span>
+		<span class="column"><?php echo $form->labelEx($modelParticipant,'mail'); ?></span>
+		<span class="column"><?php echo $form->labelEx($modelParticipant,'phone'); ?></span>
 			<br />
 		<div class="row">
 <span class="gender" ><select name="Participant[0][gender]" id="Participant_gender">
+	<option value="">-</option>
 	<option value="Monsieur">Monsieur</option>
 	<option value="Madame">Madame</option>
 </select>
@@ -105,7 +111,7 @@
 	<h2 class="toonish">Participations</h2>
 	<div id="participations">
 	
-	<?php if($modelProject->night || $modelProject->lunch || $modelProject->dinner): ?>
+	<?php if($modelProject->nightSelect || $modelProject->lunchSelect || $modelProject->dinnerSelect || $modelProject->daySelect): ?>
 	
 	<?php 
 	//Calcule du nombre de jours
@@ -126,7 +132,7 @@
 					<?php if($modelProject->daySelect): ?>
 					<th>Jours</th>
 					<?php endif; ?>
-					<?php if($modelProject->nightSelect): ?>
+					<?php if($modelProject->nightSelect && $modelProject->night): ?>
 					<th><?php echo $form->labelEx($modelProject,'night'); ?></th>
 					<?php endif; ?>
 					<?php if($modelProject->lunchSelect): ?>
@@ -164,6 +170,7 @@
 				
 				<?php 
 					$date[$i] = date("Y-m-d",$ii);
+					//echo $modelProject->daySelect;
 				?>
 				
 				<tr>
@@ -171,7 +178,7 @@
 					<?php if($modelProject->daySelect): ?>
 					<td><input id="Participation_day" type="checkbox" name="Participation[<?php echo $date[$i]; ?>][day]" value="1"></td>
 					<?php endif; ?>
-					<?php if($modelProject->nightSelect): ?>
+					<?php if($modelProject->nightSelect && $modelProject->night): ?>
 					<td><input id="Participation_night" type="checkbox" name="Participation[<?php echo $date[$i]; ?>][night]" value="1"></td>
 					<?php endif; ?>
 					<?php if($modelProject->lunchSelect): ?>

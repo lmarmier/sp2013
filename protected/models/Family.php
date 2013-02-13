@@ -101,7 +101,7 @@ class Family extends CActiveRecord
 			'mail' => 'Mail',
 			'phone' => 'Téléphone',
 			'comment' => 'Commentaire',
-			'created' => 'Date dinscription',
+			'created' => 'Date d\'inscription',
 		);
 	}
 

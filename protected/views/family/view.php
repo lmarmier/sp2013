@@ -145,13 +145,16 @@ function age($naiss)  {
 			<?php endif; ?>
 		</tr>
 	<?php endforeach; ?>
+	<!--
 	<?php
 		$priceDays = $nbDays*$model->form->priceByDay;
 		$priceNights = $nbNights*$model->form->priceByNight;
 		$priceLunchs = $nbLunchs*$model->form->priceByLunch;
 		$priceDinners = $nbDinners*$model->form->priceByDinner;
 	?>
+	-->
 	</tbody>
+	<!--
 		<tfoot>
 		<tr>
 			<td>Prix</td>
@@ -169,8 +172,9 @@ function age($naiss)  {
 			<?php endif; ?>
 		</tr>
 	</tfoot>
+	-->
 </table>
-
+<!--
 <?php 
 	if($model->form->daySelect == false){
 		$priceDays = $nb*$model->form->priceByDay;
@@ -208,3 +212,5 @@ function age($naiss)  {
 <p>
 	Prix pour la famille (<?php echo $payant ?> participant(s) payant(s) et <?php echo $gratuit ?> participant(s) gratuit(s)) : <?php echo ($prixTotal*$payant)-$reduction; ?> CHF
 </p>
+-->
+<p>Meilleures salutations</p>

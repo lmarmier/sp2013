@@ -76,6 +76,11 @@ class FamilyController extends Controller
 
 		if(isset($_POST['Family']))
 		{
+			/*
+			if($_POST['Participant'][0]->name == ""){
+				$this->redirect(array('family/create','id'=>$model->id));
+			}
+			*/
 			//CVarDumper::dump($_POST, 10, true);
 			//*
 			$model->attributes=$_POST['Family'];
@@ -89,7 +94,8 @@ class FamilyController extends Controller
 					//Ajout du tableau des id des participant
 					$part[] = $modelParticipant;
 				}
-				foreach($_POST['Participation'] as $d => $p){
+				if($_POST['Participation']){
+					foreach($_POST['Participation'] as $d => $p){
 					$modelParticipation = new Participation;
 					$modelParticipation->attributes = $p;
 					$modelParticipation->date = $d;
@@ -97,6 +103,8 @@ class FamilyController extends Controller
 					//CVarDumper::dump($modelParticipation,10,true);
 					$modelParticipation->save();
 				}
+			}
+				
 				
 				//CVarDumper::dump($part,10,true);
 				//*
